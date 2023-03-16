@@ -1,23 +1,55 @@
 import logo from './logo.svg';
+import data from "./data/data"; 
+
+import ArticlesPerTopic from "./components/ArticlesPerTopic"
 import './App.css';
+import AuthorChart from './components/AuthorChart';
+import CircleChart from './components/CircleChart';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <div class="container mx-auto" >
+        <div
+        className="rounded-lg bg-red-700 text-white p-6 text-neutral-700 shadow-lg my-2 ">
+        <h2 className="mb-5 text-3xl font-semibold">News Data Visualisation</h2>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          This is a simple frontend that contains some charts of data from the bbc news.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+        </div>
+        <div class="flex-wrap justify-center gap-4 my-2">
+
+          <div class="bg-white p-4 mb-4 drop-shadow-md">
+            <h1 class="border-b p-2 text-4xl" >Authors chart</h1>
+            <div class="flex" >
+              <AuthorChart data={data} />
+              <div class="text-xl  p-2 flex flex-col justify-center content-center " >
+                This chart represents the number of Article for each author or authors 
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-4 mb-4 drop-shadow-md">
+            <h1 class="border-b p-2 text-4xl" >Ratio of articles by authors</h1>
+           <div class="flex" >
+            <CircleChart data={data} />
+              <div class="text-xl  p-2 flex flex-col justify-center content-center " >
+                This chart represents the pourcentage of the number of Article for each author or authors done in pie. Each color represents an author. In our case the author with the most articles is Kathryn Armstrong. unfortunately some articles doesnt contain any authors
+              </div>
+           </div>
+          </div>
+          <div class="bg-white p-4  mb-2 drop-shadow-md">
+            <h1 class="border-b p-2 text-4xl" >Ratio of articles by topics</h1>
+           <div class="flex" >
+            <ArticlesPerTopic data={data} />
+              <div class="text-xl  p-2 flex flex-col justify-center content-center " >
+                This chart represents the number of articles by topic. As you can see the Coronavirus Pandemic topic is the one thats dominating in the news articles
+              </div>
+           </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
