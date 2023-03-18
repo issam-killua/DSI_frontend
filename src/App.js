@@ -2,6 +2,8 @@ import ArticlesPerTopic from "./components/ArticlesPerTopic"
 import './App.css';
 import AuthorChart from './components/AuthorChart';
 import CircleChart from './components/CircleChart';
+import BarChart from "./components/DateChart";
+import DateChart from "./components/DateChart";
 
 function App() {
   return (
@@ -16,7 +18,15 @@ function App() {
 
         </div>
         <div class="flex-wrap justify-center gap-4 my-2">
-
+          <div class="bg-white p-4 mb-4 drop-shadow-md">
+            <h1 class="border-b p-2 text-4xl" >Date chart</h1>
+            <div class="flex" >
+              <DateChart  />
+              <div class="text-xl  p-2 flex flex-col justify-center content-center " >
+                The number of articles published each day 
+              </div>
+            </div>
+          </div>
           <div class="bg-white p-4 mb-4 drop-shadow-md">
             <h1 class="border-b p-2 text-4xl" >Authors chart</h1>
             <div class="flex" >
